@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional | Dwi Yanardi Pranata</title>
+        <!-- Favicon (Ikon Tab Browser) -->
+    <link rel="icon" type="image/png" href="./assets/img/icon.ico">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            light: '#1e293b',
+                            accent: '#3b82f6',
+                            glow: '#60a5fa'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+
+        /* Glowing text effects */
+        .text-glow {
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 30px -10px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        /* Scroll Reveal Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Lightbox */
+        #lightbox {
+            backdrop-filter: blur(8px);
+            transition: opacity 0.3s ease;
+        }
+
+        /* Background animated blobs */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: float 10s infinite alternate;
+        }
+
+        /* Fallback styling for broken images to keep layout neat during development */
+        img {
+            background-color: #1e293b;
+            position: relative;
+        }
+        img::after {
+            content: "Gambar Belum Dimasukkan / Salah Nama File";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #1e293b;
+            color: #ef4444;
+            font-size: 12px;
+            text-align: center;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ef4444;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Background Decoration -->
+    <div class="blob bg-blue-600 w-96 h-96 rounded-full top-0 left-0 mix-blend-multiply"></div>
+    <div class="blob bg-purple-600 w-96 h-96 rounded-full bottom-0 right-0 mix-blend-multiply" style="animation-delay: 2s;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card border-b-0 border-white/10 rounded-none">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 font-heading font-bold text-xl tracking-wider text-white">
+                    DYP<span class="text-brand-accent">.PORTFOLIO</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#profil" class="hover:text-brand-accent transition px-3 py-2 rounded-md text-sm font-medium">Profil</a>
+                        <a href="#sertifikat" class="hover:text-brand-accent transition px-3 py-2 rounded-md text-sm font-medium">Sertifikat</a>
+                        <a href="#tugas" class="hover:text-brand-accent transition px-3 py-2 rounded-md text-sm font-medium">Tugas Utama</a>
+                        <a href="#kompetensi" class="hover:text-brand-accent transition px-3 py-2 rounded-md text-sm font-medium text-glow">Uji Kompetensi</a>
+                        <a href="#project" class="hover:text-brand-accent transition px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="profil" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center min-h-screen gap-12">
+        
+        <!-- Baris 1: Profil Pribadi (Kiri) & Foto (Kanan) -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+            
+            <!-- Bagian Kiri: Teks & Kontak -->
+            <div class="md:w-7/12 z-10 reveal flex flex-col justify-center">
+                <div class="inline-block px-4 py-1 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-brand-glow text-sm font-semibold mb-6 w-max">
+                    <i class="fas fa-briefcase mr-2"></i> IT Department Intern | Maganghub Batch 2
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-heading font-extrabold leading-tight mb-4">
+                    Dwi Yanardi <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Pranata</span>
+                </h1>
+                
+                <p class="text-base md:text-lg lg:text-xl text-gray-400 mb-8 max-w-xl leading-relaxed">
+                    Lulusan Teknik Informatika Universitas Al Washliyah. Mengoptimalkan infrastruktur IT, mengembangkan dashboard real-time, dan mengelola multimedia korporat di <strong class="text-white">PT. Bank Rakyat Indonesia (Persero) Tbk Region 1 Medan</strong>.
+                </p>
+                
+                <!-- Kontak Interaktif (Icon Bar) -->
+                <div class="flex flex-wrap gap-4">
+                    <a href="mailto:ardiprnata@gmail.com" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-xl text-gray-300 hover:bg-red-500 hover:text-white hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(239,68,68,0.4)] transition-all duration-300" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dy-ardipranata/" target="_blank" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-xl text-gray-300 hover:bg-blue-600 hover:text-white hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(37,99,235,0.4)] transition-all duration-300" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/6282267105833" target="_blank" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-xl text-gray-300 hover:bg-green-500 hover:text-white hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(34,197,94,0.4)] transition-all duration-300" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dy_ardipra/" target="_blank" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-xl text-gray-300 hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-pink-500 hover:to-purple-600 hover:text-white hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(236,72,153,0.4)] transition-all duration-300" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/ardipranatatst" target="_blank" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-xl text-gray-300 hover:bg-blue-500 hover:text-white hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(59,130,246,0.4)] transition-all duration-300" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@nataaaats" target="_blank" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-xl text-gray-300 hover:bg-black hover:text-white hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.3)] transition-all duration-300 border hover:border-white/20" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Bagian Kanan: Foto Pribadi -->
+            <div class="md:w-5/12 z-10 reveal relative flex justify-center md:justify-end mt-12 md:mt-0">
+                <div class="relative w-64 sm:w-72 md:w-80 lg:w-[22rem] aspect-[3/4] rounded-[2rem] overflow-hidden group border border-white/20 shadow-2xl shadow-brand-accent/20 animate-float cursor-pointer" onclick="openLightbox(this.querySelector('img').src, 'Dwi Yanardi Pranata', 'IT Department Intern')">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-accent/40 to-purple-500/40 opacity-50 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
+                    
+                    <!-- MENGGUNAKAN LOCAL PATH: assets/img/foto-profile.jpg -->
+                    <img src="assets/img/foto-profil.jpg" alt="Dwi Yanardi Pranata" class="relative z-10 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    
+                    <div class="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-slate-900 to-transparent z-20"></div>
+                </div>
+                
+                <!-- Elemen Dekoratif Neon -->
+                <div class="absolute bottom-10 right-10 w-24 h-24 bg-brand-accent blur-3xl opacity-40 z-0 animate-pulse-slow"></div>
+                <div class="absolute top-10 left-10 w-32 h-32 bg-purple-600 blur-3xl opacity-30 z-0 animate-pulse-slow" style="animation-delay: 2s;"></div>
+            </div>
+
+        </div>
+
+        <!-- Baris 2: Profil Instansi (Terpisah di Bawah) -->
+        <div class="z-10 reveal mt-10">
+            <div class="glass-card p-6 md:p-8 rounded-3xl border-t-4 border-t-brand-accent relative overflow-hidden group flex flex-col md:flex-row gap-6 lg:gap-10 items-center w-full shadow-2xl">
+                <!-- MENGGUNAKAN LOCAL PATH: assets/img/gedung-bri.jpg -->
+                <div class="w-full md:w-5/12 aspect-video rounded-xl overflow-hidden shrink-0 border border-white/10 cursor-pointer" onclick="openLightbox(this.querySelector('img').src, 'Menara BRI Medan', 'Kantor Regional 1 Medan')">
+                    <img src="/assets/img/foto-bri.png" alt="Menara BRI" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                
+                <div class="w-full md:w-7/12 flex flex-col justify-center h-full">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-glow text-xs font-semibold mb-3 w-max uppercase tracking-wider">
+                        <i class="fas fa-building"></i> Profil Instansi
+                    </div>
+                    <h4 class="font-bold text-xl md:text-2xl text-white mb-1 group-hover:text-brand-accent transition">PT Bank Rakyat Indonesia (Persero) Tbk</h4>
+                    <p class="text-sm text-brand-glow mb-4 uppercase tracking-wider font-semibold">Region 1 Medan</p>
+                    <p class="text-sm text-gray-300 mb-6 leading-relaxed">Bank milik pemerintah berkomitmen menggerakkan ekonomi nasional melalui layanan perbankan digital, pembiayaan UMKM, dan inklusi keuangan. Menjadi wadah inkubasi profesionalisme kerja nyata selama masa program Maganghub.</p>
+                    
+                    <div class="flex flex-wrap gap-4 text-xs font-medium text-gray-400 bg-slate-900/50 p-3 rounded-lg border border-white/5 w-max">
+                        <span class="flex items-center"><i class="far fa-calendar-alt text-brand-accent mr-2 text-lg"></i> 24 Nov 2025 - 23 Mei 2026</span>
+                        <span class="hidden md:inline text-gray-600">|</span>
+                        <span class="flex items-center"><i class="fas fa-hourglass-half text-brand-accent mr-2 text-lg"></i> Periode 6 Bulan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Sertifikat Section -->
+    <section id="sertifikat" class="pb-20 pt-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+        <div class="text-left mb-10 reveal flex flex-col md:flex-row items-start md:items-center justify-between border-b border-white/10 pb-4 gap-4">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-semibold mb-2 w-max uppercase tracking-wider">
+                    <i class="fas fa-award"></i> Lisensi & Sertifikasi
+                </div>
+                <h3 class="font-heading font-bold text-2xl md:text-3xl text-white">Sertifikat <span class="text-brand-accent">Profesional</span></h3>
+            </div>
+            <div class="text-gray-400 text-sm flex items-center bg-slate-800/50 px-4 py-2 rounded-lg border border-white/5">
+                <i class="fas fa-file-pdf text-red-500 mr-2 text-lg"></i> 
+                <span>Klik tombol untuk melihat dokumen PDF penuh.</span>
+            </div>
+        </div>
+        
+        <!-- Grid 8 Sertifikat PDF -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Dokumen PDF 1 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col group reveal border-t-4 border-t-transparent hover:border-t-brand-accent transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center border border-red-500/20 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                        <i class="fas fa-file-pdf text-2xl text-red-400"></i>
+                    </div>
+                    <span class="text-xs font-bold text-gray-500 bg-slate-800 px-2 py-1 rounded">PDF 01</span>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Sertifikat Program Pemagangan Lulusan Perguruan Tinggi – PT Bank Rakyat Indonesia (BRI)</h4>
+                <p class="text-xs text-gray-400 mb-6 flex-grow leading-relaxed">Menyelesaikan program magang sebagai Internship Assistant di PT Bank Rakyat Indonesia (Persero) Tbk dengan predikat Sangat Baik, memperoleh pengalaman profesional dalam operasional dan lingkungan kerja perbankan.</p>
+                <a href="./assets/pdf/sertifikat-maganghub.pdf" target="_blank" class="w-full px-4 py-2.5 bg-slate-800 hover:bg-brand-accent text-white text-sm font-semibold rounded-lg transition-all flex items-center justify-center gap-2 border border-white/5 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    <i class="fas fa-external-link-alt"></i> Buka PDF
+                </a>
+            </div>
+
+            <!-- Dokumen PDF 2 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col group reveal delay-100 border-t-4 border-t-transparent hover:border-t-brand-accent transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center border border-red-500/20 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                        <i class="fas fa-file-pdf text-2xl text-red-400"></i>
+                    </div>
+                    <span class="text-xs font-bold text-gray-500 bg-slate-800 px-2 py-1 rounded">PDF 02</span>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Sertifikat Networking Basics – Cisco Networking Academy</h4>
+                <p class="text-xs text-gray-400 mb-6 flex-grow leading-relaxed">Mempelajari dasar-dasar jaringan komputer, termasuk konsep konektivitas jaringan, IP addressing, perangkat jaringan, keamanan dasar jaringan, dan troubleshooting jaringan untuk mendukung infrastruktur TI modern.</p>
+                <a href="./assets/pdf/sertifikat-cisco.pdf" target="_blank" class="w-full px-4 py-2.5 bg-slate-800 hover:bg-brand-accent text-white text-sm font-semibold rounded-lg transition-all flex items-center justify-center gap-2 border border-white/5 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    <i class="fas fa-external-link-alt"></i> Buka PDF
+                </a>
+            </div>
+
+            <!-- Dokumen PDF 3 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col group reveal delay-200 border-t-4 border-t-transparent hover:border-t-brand-accent transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center border border-red-500/20 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                        <i class="fas fa-file-pdf text-2xl text-red-400"></i>
+                    </div>
+                    <span class="text-xs font-bold text-gray-500 bg-slate-800 px-2 py-1 rounded">PDF 03</span>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Sertifikat Program Pertukaran Mahasiswa Merdeka Batch 3</h4>
+                <p class="text-xs text-gray-400 mb-6 flex-grow leading-relaxed">Berpartisipasi dalam Program Pertukaran Mahasiswa Merdeka yang memberikan pengalaman belajar lintas perguruan tinggi, memperluas wawasan akademik, budaya, dan kolaborasi antar mahasiswa dari berbagai daerah di Indonesia.</p>
+                <a href="./assets/pdf/sertifikat-pmm3.pdf" target="_blank" class="w-full px-4 py-2.5 bg-slate-800 hover:bg-brand-accent text-white text-sm font-semibold rounded-lg transition-all flex items-center justify-center gap-2 border border-white/5 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    <i class="fas fa-external-link-alt"></i> Buka PDF
+                </a>
+            </div>
+
+            <!-- Dokumen PDF 4 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col group reveal delay-300 border-t-4 border-t-transparent hover:border-t-brand-accent transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center border border-red-500/20 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                        <i class="fas fa-file-pdf text-2xl text-red-400"></i>
+                    </div>
+                    <span class="text-xs font-bold text-gray-500 bg-slate-800 px-2 py-1 rounded">PDF 04</span>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Sertifikat ASEAN Data Science Explorers 2023 – SAP Analytics Cloud Training</h4>
+                <p class="text-xs text-gray-400 mb-6 flex-grow leading-relaxed">Mengikuti pelatihan data analytics menggunakan SAP Analytics Cloud yang mencakup data modeling, smart discovery, data exploration, dashboard design, dan visualisasi data untuk mendukung pengambilan keputusan berbasis data.</p>
+                <a href="./assets/pdf/sertifikat-adse.pdf" target="_blank" class="w-full px-4 py-2.5 bg-slate-800 hover:bg-brand-accent text-white text-sm font-semibold rounded-lg transition-all flex items-center justify-center gap-2 border border-white/5 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    <i class="fas fa-external-link-alt"></i> Buka PDF
+                </a>
+            </div>
+
+                        <!-- Dokumen PDF 5 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col group reveal delay-300 border-t-4 border-t-transparent hover:border-t-brand-accent transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center border border-red-500/20 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                        <i class="fas fa-file-pdf text-2xl text-red-400"></i>
+                    </div>
+                    <span class="text-xs font-bold text-gray-500 bg-slate-800 px-2 py-1 rounded">PDF 05</span>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Sertifikat ISC2 Certified in Cybersecurity (CC) Course Pre-Assessment – ISC2</h4>
+                <p class="text-xs text-gray-400 mb-6 flex-grow leading-relaxed">Menyelesaikan pre-assessment program Certified in Cybersecurity (CC) dari ISC2 yang berfokus pada pemahaman dasar keamanan siber, manajemen risiko, keamanan jaringan, dan prinsip perlindungan informasi.</p>
+                <a href="./assets/pdf/sertifikat-isc2.pdf" target="_blank" class="w-full px-4 py-2.5 bg-slate-800 hover:bg-brand-accent text-white text-sm font-semibold rounded-lg transition-all flex items-center justify-center gap-2 border border-white/5 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    <i class="fas fa-external-link-alt"></i> Buka PDF
+                </a>
+            </div>
+
+                        <!-- Dokumen PDF 6 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col group reveal delay-300 border-t-4 border-t-transparent hover:border-t-brand-accent transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center border border-red-500/20 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                        <i class="fas fa-file-pdf text-2xl text-red-400"></i>
+                    </div>
+                    <span class="text-xs font-bold text-gray-500 bg-slate-800 px-2 py-1 rounded">PDF 06</span>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Sertifikat Prompt Engineering untuk Software Developer – Dicoding</h4>
+                <p class="text-xs text-gray-400 mb-6 flex-grow leading-relaxed">Mempelajari teknik penyusunan prompt yang efektif untuk Generative AI dalam pengembangan perangkat lunak, mencakup prompt patterns, best practices, implementasi pada software development, serta aspek etika penggunaan AI.</p>
+                <a href="./assets/pdf/sertifikat-decoding1.pdf" target="_blank" class="w-full px-4 py-2.5 bg-slate-800 hover:bg-brand-accent text-white text-sm font-semibold rounded-lg transition-all flex items-center justify-center gap-2 border border-white/5 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    <i class="fas fa-external-link-alt"></i> Buka PDF
+                </a>
+            </div>
+
+                        <!-- Dokumen PDF 7 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col group reveal delay-300 border-t-4 border-t-transparent hover:border-t-brand-accent transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center border border-red-500/20 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                        <i class="fas fa-file-pdf text-2xl text-red-400"></i>
+                    </div>
+                    <span class="text-xs font-bold text-gray-500 bg-slate-800 px-2 py-1 rounded">PDF 07</span>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Sertifikat Belajar Dasar Cloud dan Gen AI di AWS – Dicoding x AWS</h4>
+                <p class="text-xs text-gray-400 mb-6 flex-grow leading-relaxed">Memahami fundamental cloud computing menggunakan AWS, meliputi layanan komputasi, jaringan, keamanan, database, monitoring, migrasi cloud, serta pengenalan Artificial Intelligence dan Generative AI di ekosistem AWS.</p>
+                <a href="./assets/pdf/sertifikat-decoding2.pdf" target="_blank" class="w-full px-4 py-2.5 bg-slate-800 hover:bg-brand-accent text-white text-sm font-semibold rounded-lg transition-all flex items-center justify-center gap-2 border border-white/5 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    <i class="fas fa-external-link-alt"></i> Buka PDF
+                </a>
+            </div>
+
+                        <!-- Dokumen PDF 8 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col group reveal delay-300 border-t-4 border-t-transparent hover:border-t-brand-accent transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center border border-red-500/20 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                        <i class="fas fa-file-pdf text-2xl text-red-400"></i>
+                    </div>
+                    <span class="text-xs font-bold text-gray-500 bg-slate-800 px-2 py-1 rounded">PDF 08</span>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Sertifikat Belajar Penerapan Data Science dengan Microsoft Fabric – Dicoding x Microsoft</h4>
+                <p class="text-xs text-gray-400 mb-6 flex-grow leading-relaxed">Menguasai proses data science end-to-end menggunakan Microsoft Fabric, mulai dari eksplorasi data, preprocessing, pengembangan model machine learning, deployment, monitoring model, hingga batch prediction.</p>
+                <a href="./assets/pdf/sertifikat-decoding3.pdf" target="_blank" class="w-full px-4 py-2.5 bg-slate-800 hover:bg-brand-accent text-white text-sm font-semibold rounded-lg transition-all flex items-center justify-center gap-2 border border-white/5 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    <i class="fas fa-external-link-alt"></i> Buka PDF
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-20 bg-brand-light/30 border-y border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">Keahlian & <span class="text-brand-accent">Kompetensi</span></h2>
+                <div class="w-24 h-1 bg-brand-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Hard Skills -->
+                <div class="glass-card p-8 rounded-xl reveal">
+                    <div class="w-14 h-14 rounded-full bg-blue-900/50 flex items-center justify-center mb-6 border border-blue-500/30">
+                        <i class="fas fa-laptop-code text-2xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Hard Skills</h3>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-accent mt-1 mr-3"></i> <span><strong>IT Support & Infra:</strong> Diagnosis jaringan, maintenance PC/UPS/CCTV, instalasi Logitech Rally, Helpdesk L1.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-accent mt-1 mr-3"></i> <span><strong>Web Dev & Cloud:</strong> Dashboard real-time (HTML, CSS, JS, PHP, Google Apps Script).</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-accent mt-1 mr-3"></i> <span><strong>Data & Admin:</strong> Rekapitulasi dan otomatisasi validasi data skala besar.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-accent mt-1 mr-3"></i> <span><strong>Security:</strong> Protokol otentikasi & tata kelola akses M365.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-accent mt-1 mr-3"></i> <span><strong>Multimedia:</strong> Audio-visual, broadcasting, desain aset.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Tools -->
+                <div class="glass-card p-8 rounded-xl reveal delay-100">
+                    <div class="w-14 h-14 rounded-full bg-purple-900/50 flex items-center justify-center mb-6 border border-purple-500/30">
+                        <i class="fas fa-tools text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Tools & Technologies</h3>
+                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-300">
+                        <div class="flex flex-col items-center p-3 bg-slate-800/50 rounded-lg"><i class="fas fa-code text-2xl mb-2 text-blue-400"></i> VS Code</div>
+                        <div class="flex flex-col items-center p-3 bg-slate-800/50 rounded-lg"><i class="fab fa-microsoft text-2xl mb-2 text-blue-300"></i> M365</div>
+                        <div class="flex flex-col items-center p-3 bg-slate-800/50 rounded-lg"><i class="fab fa-google text-2xl mb-2 text-red-400"></i> Workspace</div>
+                        <div class="flex flex-col items-center p-3 bg-slate-800/50 rounded-lg"><i class="fas fa-paint-brush text-2xl mb-2 text-pink-400"></i> Canva</div>
+                        <div class="flex flex-col items-center p-3 bg-slate-800/50 rounded-lg"><i class="fas fa-video text-2xl mb-2 text-green-400"></i> vMix</div>
+                        <div class="flex flex-col items-center p-3 bg-slate-800/50 rounded-lg"><i class="fas fa-cut text-2xl mb-2 text-gray-100"></i> CapCut</div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="glass-card p-8 rounded-xl reveal delay-200">
+                    <div class="w-14 h-14 rounded-full bg-green-900/50 flex items-center justify-center mb-6 border border-green-500/30">
+                        <i class="fas fa-users text-2xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Soft Skills</h3>
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li>
+                            <strong class="text-white block mb-1">Analytical Problem Solving</strong>
+                            Identifikasi & resolusi anomali teknis lapangan secara presisi.
+                        </li>
+                        <li>
+                            <strong class="text-white block mb-1">Technical Communication</strong>
+                            Menerjemahkan prosedur IT (sisdur) menjadi instruksi praktis pengguna.
+                        </li>
+                        <li>
+                            <strong class="text-white block mb-1">Cross-Functional Collaboration</strong>
+                            Koordinasi aktif lintas divisi dan eksternal (Learning Partner).
+                        </li>
+                        <li>
+                            <strong class="text-white block mb-1">Agile Adaptability</strong>
+                            Transisi peran cepat: administratif, teknis lapangan, dan manajemen acara.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tugas Utama -->
+    <section id="tugas" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">Tugas <span class="text-brand-accent">Utama</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Ruang lingkup tanggung jawab operasional dan administratif selama masa magang di IT Department.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal">
+            <!-- Isi tugas tetap sama -->
+            <div class="glass-card p-5 rounded-lg flex items-start group">
+                <div class="mt-1 mr-4 text-brand-accent group-hover:scale-125 transition duration-300"><i class="fas fa-check-square"></i></div>
+                <div><h4 class="font-bold text-white mb-1">Administrasi Kebijakan IT</h4><p class="text-sm text-gray-400">Pencatatan, pemantauan, dan sosialisasi prosedur sistem (sisdur) IT Kanwil, Mobile & e-channel.</p></div>
+            </div>
+            <div class="glass-card p-5 rounded-lg flex items-start group">
+                <div class="mt-1 mr-4 text-brand-accent group-hover:scale-125 transition duration-300"><i class="fas fa-check-square"></i></div>
+                <div><h4 class="font-bold text-white mb-1">Standardisasi Aplikasi</h4><p class="text-sm text-gray-400">Memastikan kesesuaian implementasi aplikasi Core dan Non-Core untuk kelancaran layanan.</p></div>
+            </div>
+            <div class="glass-card p-5 rounded-lg flex items-start group">
+                <div class="mt-1 mr-4 text-brand-accent group-hover:scale-125 transition duration-300"><i class="fas fa-check-square"></i></div>
+                <div><h4 class="font-bold text-white mb-1">Help Desk Tingkat Pertama</h4><p class="text-sm text-gray-400">Respons awal dan dokumentasi permasalahan IT sebelum eskalasi teknisi senior.</p></div>
+            </div>
+            <div class="glass-card p-5 rounded-lg flex items-start group">
+                <div class="mt-1 mr-4 text-brand-accent group-hover:scale-125 transition duration-300"><i class="fas fa-check-square"></i></div>
+                <div><h4 class="font-bold text-white mb-1">Pemeliharaan Aset</h4><p class="text-sm text-gray-400">Turut serta dalam agenda pemeliharaan rutin hardware dan software.</p></div>
+            </div>
+            <div class="glass-card p-5 rounded-lg flex items-start group">
+                <div class="mt-1 mr-4 text-brand-accent group-hover:scale-125 transition duration-300"><i class="fas fa-check-square"></i></div>
+                <div><h4 class="font-bold text-white mb-1">Implementasi Produk IT</h4><p class="text-sm text-gray-400">Pencatatan teknis lapangan saat pemasangan produk IT baru.</p></div>
+            </div>
+            <div class="glass-card p-5 rounded-lg flex items-start group">
+                <div class="mt-1 mr-4 text-brand-accent group-hover:scale-125 transition duration-300"><i class="fas fa-check-square"></i></div>
+                <div><h4 class="font-bold text-white mb-1">Monitoring Operasional Dasar</h4><p class="text-sm text-gray-400">Pencatatan harian infrastruktur IT agar beroperasi sesuai kebutuhan pengguna.</p></div>
+            </div>
+            <div class="glass-card p-5 rounded-lg flex items-start group">
+                <div class="mt-1 mr-4 text-brand-accent group-hover:scale-125 transition duration-300"><i class="fas fa-check-square"></i></div>
+                <div><h4 class="font-bold text-white mb-1">Data Performa Infrastruktur</h4><p class="text-sm text-gray-400">Pengumpulan data performa harian untuk analisis SLA (Service Level Agreement).</p></div>
+            </div>
+            <div class="glass-card p-5 rounded-lg flex items-start group">
+                <div class="mt-1 mr-4 text-brand-accent group-hover:scale-125 transition duration-300"><i class="fas fa-check-square"></i></div>
+                <div><h4 class="font-bold text-white mb-1">Pemantauan Jaringan</h4><p class="text-sm text-gray-400">Mengawasi media komunikasi agar berjalan sesuai pedoman.</p></div>
+            </div>
+            <div class="glass-card p-5 rounded-lg flex items-start group">
+                <div class="mt-1 mr-4 text-brand-accent group-hover:scale-125 transition duration-300"><i class="fas fa-check-square"></i></div>
+                <div><h4 class="font-bold text-white mb-1">Troubleshooting Awal</h4><p class="text-sm text-gray-400">Diagnosis teknis praktis kendala jaringan dasar.</p></div>
+            </div>
+            <div class="glass-card p-5 rounded-lg flex items-start group">
+                <div class="mt-1 mr-4 text-brand-accent group-hover:scale-125 transition duration-300"><i class="fas fa-check-square"></i></div>
+                <div><h4 class="font-bold text-white mb-1">Dukungan Bisnis Eksternal</h4><p class="text-sm text-gray-400">Administrasi dokumen dan data teknis untuk kerja sama pihak ketiga.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Uji Kompetensi (INTERACTIVE GALLERY LOCAL PATHS) -->
+    <section id="kompetensi" class="py-20 bg-[#0b1120] relative z-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-accent font-semibold tracking-wider text-sm uppercase block mb-2">Showcase Maksimal</span>
+                <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">Uji <span class="text-brand-accent">Kompetensi</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-8">Pemetaan langsung aktivitas lapangan, administratif, dan teknis IT terhadap standar unit kompetensi kerja. Klik setiap gambar untuk melihat detail.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Portfolio Standard Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                
+                <!-- Unit 1 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal">
+                    <div class="grid grid-cols-2 gap-2 h-40 mb-5">
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Tampilan Visual Studio Code', 'Keterangan Gambar: Tampilan layar saat menggunakan VS Code. | Aktivitas: Membangun dashboard menggunakan Visual Studio Code sebagai source code editor.')">
+                            <img src="/assets/img/foto-vscode.png" alt="VS Code" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-2xl text-white"></i></div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Operator Multimedia vMix', 'Keterangan Gambar: Dokumentasi foto saat menjadi operator multimedia. | Aktivitas: Menjadi operator multimedia (vMix, Microsoft PowerPoint) dalam acara pendidikan.')">
+                            <img src="/assets/img/foto-operator.jpeg" alt="vMix" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-2xl text-white"></i></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 01</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Menggunakan Perangkat Komputer</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Membangun dashboard menggunakan Visual Studio Code sebagai source code editor. Menjadi operator multimedia (vMix, Microsoft PowerPoint) dalam acara pendidikan.</p>
+                    </div>
+                </div>
+
+                <!-- Unit 2 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal delay-100">
+                    <div class="relative overflow-hidden rounded-xl h-40 cursor-pointer mb-5 border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'List Workstation OS', 'Keterangan Gambar: Screenshot List Workstation BRI yang memuat kolom OS dan OS Version secara jelas. | Aktivitas: Melakukan manajemen file selama integrasi sistem. Menginventarisasi spesifikasi Operating System (OS) dan versinya pada workstation pekerja.')">
+                        <img src="/assets/img/foto-osversion.jpeg" alt="List Workstation" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-3xl text-white"></i></div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 02</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Menggunakan Sistem Operasi</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Melakukan manajemen file selama integrasi sistem. Menginventarisasi spesifikasi Operating System (OS) dan versinya pada workstation pekerja.</p>
+                    </div>
+                </div>
+
+                <!-- Unit 3 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal delay-200">
+                    <div class="grid grid-cols-2 gap-2 h-40 mb-5">
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Setup Meja Operator Audio', 'Keterangan Gambar: Memasang perlengkapan operator audio/multimedia. | Aktivitas: Mengoperasikan sistem audio untuk acara pendidikan.')">
+                            <img src="/assets/img/foto-operatorsound.jpeg" alt="Audio Setup" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-2xl text-white"></i></div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Instalasi Logitech Rally Plus', 'Keterangan Gambar: Pemasangan Perangkat Logitech Rally Plus. | Aktivitas: Melakukan instalasi perangkat keras fisik berupa pemasangan kamera meeting Logitech Rally Plus.')">
+                            <img src="/assets/img/foto-rallyplus.jpeg" alt="Logitech" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-2xl text-white"></i></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 03</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Menggunakan Peralatan Peripheral</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Melakukan instalasi perangkat keras fisik berupa pemasangan kamera meeting Logitech Rally Plus. Mengoperasikan sistem audio untuk acara pendidikan.</p>
+                    </div>
+                </div>
+
+                <!-- Unit 4 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal">
+                    <div class="relative overflow-hidden rounded-xl h-40 cursor-pointer mb-5 border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Draf Laporan MS Word', 'Keterangan Gambar: Tangkapan layar dokumen Microsoft Word draf laporan magang. | Aktivitas: Membuat catatan untuk segala kegiatan yang saya lakukan selama magang yang dibuat dengan menggunaka Aplikasi Microsoft Word.')">
+                        <img src="/assets/img/foto-word.jpeg" alt="Pengolah Kata" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-3xl text-white"></i></div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 04</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Pengolah Kata Tingkat Dasar</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Membuat catatan untuk segala kegiatan yang saya lakukan selama magang yang dibuat dengan menggunakan Aplikasi Microsoft Word.</p>
+                    </div>
+                </div>
+
+                <!-- Unit 5 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal delay-100">
+                    <div class="grid grid-cols-2 gap-2 h-40 mb-5">
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Spreadsheet Rekap Perangkat', 'Keterangan Gambar: Tampilan Google Spreadsheet Rekap Perangkat. | Aktivitas: Merekapitulasi dan mengelola data menggunakan Google Spreadsheet dan Microsoft Excel.')">
+                            <img src="/assets/img/foto-gspread.jpeg" alt="Rekap Perangkat" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-2xl text-white"></i></div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Spreadsheet Format Pengajuan UPS', 'Keterangan Gambar: Tampilan Google Spreadsheet Format Pengajuan UPS. | Aktivitas: Merekapitulasi dan mengelola data pengajuan UPS secara administratif.')">
+                            <img src="/assets/img/foto-excelformat.jpeg" alt="Format UPS" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-2xl text-white"></i></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 05</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Lembar Sebar (Spreadsheet)</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Merekapitulasi dan mengelola data menggunakan Google Spreadsheet dan Microsoft Excel. Mencakup rekap perangkat, switch LAN, workstation, CCTV, dan UPS.</p>
+                    </div>
+                </div>
+
+                <!-- Unit 6 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal delay-200">
+                    <div class="relative overflow-hidden rounded-xl h-40 cursor-pointer mb-5 border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Slide Presentasi PowerPoint', 'Keterangan Gambar: Slide Show Microsoft PowerPoint yang menampilkan grafik dan palet warna korporat. | Aktivitas: Memproduksi materi presentasi untuk IT Department dengan standar korporat.')">
+                        <img src="/assets/img/foto-ppt.png" alt="Presentasi" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-3xl text-white"></i></div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 06</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Perangkat Lunak Presentasi</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Memproduksi materi presentasi untuk IT Department (termasuk IT Performance bulanan) menggunakan Microsoft PowerPoint dengan standar ketentuan warna dan grafik korporat.</p>
+                    </div>
+                </div>
+
+                <!-- Unit 7 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal">
+                    <div class="relative overflow-hidden rounded-xl h-40 cursor-pointer mb-5 border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Komunikasi via WhatsApp', 'Keterangan Gambar: Tangkapan layar aplikasi Whatsapp yang menunjukkan proses pengiriman rekap laporan ke SPV IT. | Aktivitas: Meneruskan data rekapitulasi perangkat pekerja RO 1 Medan ke bagian SPV IT Department.')">
+                        <img src="/assets/img/foto-rekapwa.jpeg" alt="Email/Komunikasi" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-3xl text-white"></i></div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 07</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Pengakses Surat Elektronik</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Meneruskan data rekapitulasi perangkat pekerja RO 1 Medan ke bagian SPV IT Department melalui sarana komunikasi digital pekerjaan.</p>
+                    </div>
+                </div>
+
+                <!-- Unit 8 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal delay-100">
+                    <div class="grid grid-cols-2 gap-2 h-40 mb-5">
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Dashboard Rekap Perangkat', 'Keterangan Gambar: Tampilan Dasboard Monitoring Rekap Perangkat. | Aktivitas: Mengintegrasikan Google Formulir, Google Spreadsheet, dan Google Apps Script dengan HTML, CSS, JS.')">
+                            <img src="/assets/img/foto-dasdrp.png" alt="Dash Rekap" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-2xl text-white"></i></div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Dashboard UPS', 'Keterangan Gambar: Tampilan Dasboard Monitoring UPS. | Aktivitas: Pembuatan dashboard web monitoring operasional realtime.')">
+                            <img src="/assets/img/foto-dashups.png" alt="Dash UPS" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-2xl text-white"></i></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 08</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Aplikasi Berbasis Internet</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Mengintegrasikan Google Formulir, Google Spreadsheet, dan Google Apps Script (berbasis cloud) dengan HTML, CSS, JS untuk sinkronisasi real-time.</p>
+                    </div>
+                </div>
+
+                <!-- Unit 9 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal delay-200">
+                    <div class="grid grid-cols-3 gap-2 h-40 mb-5">
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Grup WA IT Department', 'Keterangan Gambar: Tangkapan layar grup WhatsApp pekerjaan, atau media komunikasi internal korporat. | Aktivitas: Komunikasi internal pekerjaan.')">
+                            <img src="/assets/img/foto-grup1.jpeg" alt="WA 1" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-xl text-white"></i></div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Grup WA Laporan', 'Keterangan Gambar: Tangkapan layar grup WhatsApp pekerjaan. | Aktivitas: Berkomunikasi untuk koordinasi operasional.')">
+                            <img src="/assets/img/foto-grup2.jpeg" alt="WA 2" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-xl text-white"></i></div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Grup WA File Sharing', 'Keterangan Gambar: Tangkapan layar grup WhatsApp pekerjaan. | Aktivitas: Berbagi dokumen dan PDF untuk kebutuhan kerja.')">
+                            <img src="/assets/img/foto-grup3.jpeg" alt="WA 3" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-xl text-white"></i></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 09</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Aplikasi Media Sosial</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Melakukan komunikasi lewat beberapa grup Whatsapp IT Department serta grup lainnya yang mana digunakan untuk kebutuhan kerja dan eskalasi informasi.</p>
+                    </div>
+                </div>
+
+                <!-- Unit 10 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal">
+                    <div class="grid grid-cols-2 gap-2 h-40 mb-5">
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Grafik Validasi Dashboard', 'Keterangan Gambar: Memantau kalkulasi validitas pengisian secara real-time melalui dashboard. | Aktivitas: Memastikan validitas data yang masuk dari form digital.')">
+                            <img src="/assets/img/foto-buktidashp.png" alt="Validasi 1" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-2xl text-white"></i></div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-xl h-full cursor-pointer border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Rekap Spreadsheet Status Belum/Sudah', 'Keterangan Gambar: Rekapan data yang belum maupun yang sudah mengisi form. | Aktivitas: Mengecek silang validitas data pekerja secara akurat.')">
+                            <img src="/assets/img/foto-buktiexcel.png" alt="Validasi 2" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-2xl text-white"></i></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 10</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Memastikan Validitas Data</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Merekap data pekerja yang sudah dan belum mengisi formulir. Memantau kalkulasi validitas pengisian secara real-time melalui grafik analisis di dashboard.</p>
+                    </div>
+                </div>
+
+                <!-- Unit 11 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col group reveal delay-100">
+                    <div class="relative overflow-hidden rounded-xl h-40 cursor-pointer mb-5 border border-white/10" onclick="openLightbox(this.querySelector('img').src, 'Panduan Akses Microsoft 365', 'Keterangan Gambar: Tangkapan layar panduan langkah-langkah akses akun Microsoft 365 untuk para pekerja. | Aktivitas: Menyosialisasikan tata cara otentikasi identitas dan menetapkan protokol keamanan login dengan mewajibkan penggunaan format identitas spesifik.')">
+                        <img src="/assets/img/foto-panduan.png" alt="Keamanan Informasi" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-brand-accent/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"><i class="fas fa-search-plus text-3xl text-white"></i></div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="text-xs font-bold text-brand-accent mb-2 uppercase tracking-wide">Unit 11</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Keamanan Informasi Pengguna</h3>
+                        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Menyosialisasikan tata cara otentikasi identitas dengan menyusun panduan "Akses Akun Microsoft 365". Menetapkan protokol wajib menggunakan format PN@hq.bri.co.id.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="project" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">Featured <span class="text-brand-accent">Projects</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Beberapa Kegiatan dan Project unggulan yang dibangun menggunakan bahasa pemrograman dan perangkat lunak kreatif selama magang di BRI Region 1.</p>
+        </div>
+
+        <!-- Project 1: Dashboard Rekap -->
+        <div class="glass-card rounded-2xl overflow-hidden mb-12 flex flex-col lg:flex-row reveal border border-blue-500/20 group">
+            <div class="lg:w-7/12 p-0 overflow-hidden relative cursor-pointer" onclick="openLightbox(this.querySelector('img').src, 'Dashboard Monitoring Rekap', 'Tampilan Real-time HTML/CSS/JS')">
+                <img src="/assets/img/foto-dashboardrekap.png" alt="Dashboard Rekap" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span class="bg-black/60 px-3 py-1 rounded text-sm text-white backdrop-blur"><i class="fas fa-search-plus mr-1"></i> Klik untuk perbesar</span>
+                </div>
+            </div>
+            <div class="lg:w-5/12 p-8 lg:p-10 flex flex-col justify-center bg-slate-900/50">
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-3 py-1 text-xs font-semibold bg-blue-900/50 text-blue-300 rounded-full border border-blue-700/50">HTML/CSS/JS</span>
+                    <span class="px-3 py-1 text-xs font-semibold bg-green-900/50 text-green-300 rounded-full border border-green-700/50">Google Apps Script</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-white">Sistem Dashboard Rekap Perangkat Real-time</h3>
+                <p class="text-gray-300 mb-6 leading-relaxed text-sm">
+                    Membangun dashboard monitoring menggunakan Visual Studio Code untuk memantau hasil pengisian formulir secara real-time. Sistem ini menghubungkan database Spreadsheet ke antarmuka web interaktif menggunakan Google Apps Script, membantu perekapan data perangkat untuk pekerja BRI Region 1 Medan.
+                </p>
+                <div class="grid grid-cols-2 gap-4 mt-auto">
+                    <div class="relative overflow-hidden rounded-lg group/img" onclick="openLightbox(this.querySelector('img').src, 'Google Form Rekap', 'Form input pendataan.')">
+                        <img src="/assets/img/foto-formrekap.png" alt="Formulir" class="w-full h-24 object-cover border border-white/10 group-hover/img:border-brand-accent cursor-pointer transition">
+                        <p class="text-[10px] text-center text-gray-400 mt-1 uppercase tracking-wider">Input: Google Form</p>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg group/img" onclick="openLightbox(this.querySelector('img').src, 'Spreadsheet Rekap', 'Database penampung data.')">
+                        <img src="/assets/img/foto-buktiexcel.png" alt="Database" class="w-full h-24 object-cover border border-white/10 group-hover/img:border-brand-accent cursor-pointer transition">
+                        <p class="text-[10px] text-center text-gray-400 mt-1 uppercase tracking-wider">Database: Spreadsheet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2: Ekosistem CCTV & UPS -->
+        <div class="glass-card rounded-2xl overflow-hidden mb-12 flex flex-col lg:flex-row-reverse reveal border border-purple-500/20 group">
+            <div class="lg:w-1/2 p-6 grid grid-cols-2 gap-3 bg-slate-900/80">
+                <!-- CCTV Form & Dash -->
+                <div class="relative overflow-hidden rounded-lg border border-white/10 cursor-pointer" onclick="openLightbox(this.querySelector('img').src, 'Form Kebutuhan CCTV', '')">
+                    <img src="/assets/img/foto-formcctv.png" alt="Form CCTV" class="w-full h-32 object-cover hover:scale-110 transition duration-500">
+                    <div class="absolute bottom-0 w-full bg-black/70 text-center py-1 text-xs font-semibold text-white">Form CCTV</div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg border border-white/10 cursor-pointer" onclick="openLightbox(this.querySelector('img').src, 'Dashboard Monitoring Kebutuhan CCTV', '')">
+                    <img src="/assets/img/foto-dashcctv.png" alt="Dash CCTV" class="w-full h-32 object-cover hover:scale-110 transition duration-500">
+                    <div class="absolute bottom-0 w-full bg-black/70 text-center py-1 text-xs font-semibold text-white">Dash CCTV</div>
+                </div>
+                <!-- UPS Form & Dash -->
+                <div class="relative overflow-hidden rounded-lg border border-white/10 cursor-pointer" onclick="openLightbox(this.querySelector('img').src, 'Form Pengajuan UPS', '')">
+                    <img src="/assets/img/foto-formatups.png" alt="Form UPS" class="w-full h-32 object-cover hover:scale-110 transition duration-500">
+                    <div class="absolute bottom-0 w-full bg-black/70 text-center py-1 text-xs font-semibold text-white">Form UPS</div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg border border-white/10 cursor-pointer" onclick="openLightbox(this.querySelector('img').src, 'Dashboard Monitoring Pengajuan UPS', '')">
+                    <img src="/assets/img/foto-dashups.png" alt="Dash UPS" class="w-full h-32 object-cover hover:scale-110 transition duration-500">
+                    <div class="absolute bottom-0 w-full bg-black/70 text-center py-1 text-xs font-semibold text-white">Dash UPS</div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                <div class="flex gap-2 mb-4">
+                    <span class="px-3 py-1 text-xs font-semibold bg-purple-900/50 text-purple-300 rounded-full border border-purple-700/50">Sistem Pengajuan</span>
+                    <span class="px-3 py-1 text-xs font-semibold bg-orange-900/50 text-orange-300 rounded-full border border-orange-700/50">Otomatisasi Laporan</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Ekosistem Kebutuhan CCTV & Pengajuan UPS</h3>
+                <p class="text-gray-300 mb-6 leading-relaxed text-sm">
+                    Membuat alur pengajuan terintegrasi untuk Kantor Cabang. Menggunakan Google Spreadsheet sebagai form, dan merancang antarmuka Dashboard HTML/CSS/JS (di Visual Studio Code) untuk mempermudah pemantauan hasil pengajuan secara realtime sebelum diteruskan ke bagian SPV IT Department.
+                </p>
+                <div class="flex items-center gap-4 text-sm text-gray-400 bg-slate-800/50 p-4 rounded-lg border border-white/5">
+                    <i class="fas fa-network-wired text-2xl text-brand-accent"></i>
+                    <p>Integrasi Database <i class="fas fa-arrow-right mx-1 text-xs"></i> Visualisasi Web Apps.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3: Admin & Presentasi -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 reveal mb-12">
+            <!-- Col 1: Infrastruktur Spreadsheet -->
+            <div class="glass-card p-8 rounded-2xl flex flex-col">
+                <h3 class="text-xl font-bold mb-3 border-b border-white/10 pb-2">Administrasi Infrastruktur (G-Sheets)</h3>
+                <p class="text-sm text-gray-300 mb-6">
+                    Membuat form digital manajemen aset dan jaringan. Termasuk pendataan *Refreshment Switch LAN Zona 1* dan rekapitulasi data *List Workstation BRI*.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-auto">
+                    <img src="/assets/img/foto-lan.png" alt="Switch LAN" class="rounded-lg object-cover w-full h-32 cursor-pointer hover:opacity-80 border border-white/10 transition" onclick="openLightbox(this.src, 'Form Refreshment Switch LAN', '')">
+                    <img src="/assets/img/foto-workbri.png" alt="Workstation" class="rounded-lg object-cover w-full h-32 cursor-pointer hover:opacity-80 border border-white/10 transition" onclick="openLightbox(this.src, 'Form List Workstation', '')">
+                </div>
+            </div>
+
+            <!-- Col 2: Presentasi Eksekutif -->
+            <div class="glass-card p-8 rounded-2xl flex flex-col h-full">
+                <h3 class="text-xl font-bold mb-3 border-b border-white/10 pb-2">Manajemen Presentasi Eksekutif</h3>
+                <p class="text-sm text-gray-300 mb-6 flex-grow">
+                    Menggunakan *Canva* dan *PowerPoint* sesuai ketentuan warna dan grafik korporat untuk topik: Panduan Pengajuan UserID (Open Booth & eBuzz), IT Performance Update 2026, dan Monthly Operational Analytics.
+                </p>
+                
+                <!-- PDF Viewer/Opener for Presentasi -->
+                <div class="mt-auto bg-slate-900/50 p-4 rounded-xl border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 group hover:bg-slate-800/80 transition-colors">
+                    <div class="flex items-center gap-4 w-full">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center border border-orange-500/20 shrink-0 group-hover:bg-orange-500/20 transition-colors">
+                            <i class="fas fa-file-pdf text-2xl text-orange-400"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="text-sm font-bold text-white leading-tight mb-1">Materi Presentasi 2026</h4>
+                            <p class="text-xs text-gray-400">PDF Document (Standar Korporat)</p>
+                        </div>
+                    </div>
+                    <!-- LOCAL PATH: assets/pdf/materi-presentasi.pdf -->
+                    <a href="./assets/pdf/materi-presentasi.pdf" target="_blank" class="shrink-0 w-full sm:w-auto px-4 py-2 bg-brand-accent hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <i class="fas fa-eye"></i> Lihat PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4: Multimedia & Hardware -->
+        <div class="glass-card rounded-2xl overflow-hidden reveal border border-cyan-500/20">
+            <div class="p-8 lg:p-10 bg-gradient-to-r from-slate-900 to-slate-800">
+                <h3 class="text-2xl font-bold mb-2">Multimedia, Event & Setup Hardware</h3>
+                <p class="text-gray-300 text-sm mb-6 max-w-3xl">
+                    Dipercaya sebagai operator tayangan langsung (menggunakan <strong>vMix</strong>) dan sistem audio untuk program pendidikan regional. Termasuk tugas merancang backdrop acara menggunakan <strong>Canva</strong> dan partisipasi instalasi kamera meeting <strong>Logitech Rally Plus</strong>.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="relative rounded-lg overflow-hidden border border-white/10 group cursor-pointer" onclick="openLightbox(this.querySelector('img').src, 'Backdrop Petugas Bansos', 'Dibuat dengan Canva berdasarkan bahan Learning Partner.')">
+                        <img src="./assets/img/foto-backdrop.png" alt="Backdrop" class="w-full h-40 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute bottom-0 bg-black/80 w-full p-2 text-xs text-white">Desain Backdrop Acara</div>
+                    </div>
+                    <div class="relative rounded-lg overflow-hidden border border-white/10 group cursor-pointer" onclick="openLightbox(this.querySelector('img').src, 'Operator Multimedia', 'Pendidikan Trade Finance & Ekosistem Bisnis Retail.')">
+                        <img src="./assets/img/foto-vmix.png" alt="Operator vMix" class="w-full h-40 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute bottom-0 bg-black/80 w-full p-2 text-xs text-white">Operator vMix & Audio</div>
+                    </div>
+                    <div class="relative rounded-lg overflow-hidden border border-white/10 group cursor-pointer" onclick="openLightbox(this.querySelector('img').src, 'Setup Logitech Rally Plus', 'Pemasangan pada ruangan meeting utama.')">
+                        <img src="./assets/img/foto-setup.png" alt="Logitech" class="w-full h-40 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute bottom-0 bg-black/80 w-full p-2 text-xs text-white">Setup Kamera Meeting Baru</div>
+                    </div>
+                </div>
+
+                <!-- Software Used Tags -->
+                <div class="border-t border-white/10 pt-6">
+                    <p class="text-xs text-gray-400 mb-3 uppercase tracking-wider font-semibold">Perangkat Lunak Pendukung Project:</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm text-gray-200 border border-white/5"><i class="fas fa-code text-blue-400 mr-2"></i> Visual Studio Code</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm text-gray-200 border border-white/5"><i class="fas fa-video text-green-400 mr-2"></i> vMix</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm text-gray-200 border border-white/5"><i class="fas fa-paint-brush text-purple-400 mr-2"></i> Canva</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm text-gray-200 border border-white/5"><i class="fas fa-film text-white mr-2"></i> CapCut</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm text-gray-200 border border-white/5"><i class="fab fa-microsoft text-blue-500 mr-2"></i> M365 (Word, Excel, PPT)</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm text-gray-200 border border-white/5"><i class="fas fa-table text-green-500 mr-2"></i> Google Spreadsheet & Forms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Apresiasi & Terima Kasih Section -->
+    <section class="py-20 bg-brand-dark relative z-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-[2rem] p-8 lg:p-14 border border-blue-500/20 reveal flex flex-col lg:flex-row items-center gap-12">
+                
+                <!-- Teks Ucapan -->
+                <div class="lg:w-1/2">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-sm font-semibold mb-6">
+                        <i class="fas fa-heart text-pink-500 animate-pulse"></i> Apresiasi & Terima Kasih
+                    </div>
+                    
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold mb-6 text-white leading-tight">
+                        Terima Kasih, <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">IT Department BRI RO 1 Medan</span>
+                    </h2>
+                    
+                    <p class="text-gray-300 leading-relaxed mb-6 text-lg">
+                        Pengalaman magang selama 6 bulan ini memberikan pelajaran berharga yang tak terlupakan. Tidak hanya mengasah keterampilan teknis infrastruktur dan <i>coding</i>, melainkan juga menanamkan nilai-nilai kerja sama tim, integritas, dan profesionalisme kerja.
+                    </p>
+                    
+                    <div class="border-l-4 border-brand-accent pl-4 py-1">
+                        <p class="text-gray-400 leading-relaxed italic text-sm">
+                            "Rasa terima kasih yang mendalam saya haturkan kepada seluruh jajaran Supervisor, Mentor, dan rekan-rekan pekerja atas bimbingan, ilmu, dan kesempatan luar biasa yang telah diberikan."
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Galeri Foto Bersama (Desain Landscape Overlapping) -->
+                <div class="lg:w-1/2 w-full relative flex flex-col gap-6 mt-10 lg:mt-0">
+                    
+                    <!-- Foto 1 (Atas - Geser Kiri) -->
+                    <div class="relative w-full md:w-[85%] aspect-video rounded-2xl overflow-hidden group border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] self-start cursor-pointer z-10 hover:z-30 transition-all duration-300" onclick="openLightbox(this.querySelector('img').src, 'Kebersamaan Tim IT Department', 'Terima kasih atas kerja sama dan kolaborasi luar biasa.')">
+                        <img src="./assets/img/foto-rame1.jpeg" alt="Momen Bersama 1" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-brand-accent/30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center backdrop-blur-sm">
+                            <i class="fas fa-search-plus text-4xl text-white drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Foto 2 (Bawah - Geser Kanan & Overlap) -->
+                    <div class="relative w-full md:w-[85%] aspect-video rounded-2xl overflow-hidden group border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] self-end md:-mt-24 cursor-pointer z-20 hover:z-30 transition-all duration-300" onclick="openLightbox(this.querySelector('img').src, 'Perpisahan Maganghub Batch 2', 'Sebuah pencapaian dan kenang-kenangan magang.')">
+                        <img src="./assets/img/foto-rame2.jpeg" alt="Momen Bersama 2" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-purple-500/30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center backdrop-blur-sm">
+                            <i class="fas fa-search-plus text-4xl text-white drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Dekorasi Elemen Pendukung -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-accent rounded-full mix-blend-screen filter blur-[80px] opacity-20 z-0"></div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Modern -->
+    <footer class="bg-[#080d17] border-t border-white/5 pt-20 pb-10 relative z-10 overflow-hidden">
+        <!-- Background glows -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-50"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 reveal">
+                
+                <!-- Col 1: Brand Info (Span 5) -->
+                <div class="lg:col-span-5 flex flex-col justify-center">
+                    <h2 class="font-heading font-bold text-3xl tracking-wider text-white mb-4">
+                        DYP<span class="text-brand-accent">.PORTFOLIO</span>
+                    </h2>
+                    <p class="text-gray-400 mb-8 max-w-md leading-relaxed text-sm">
+                        Lulusan Teknik Informatika yang berfokus pada efisiensi infrastruktur, pengembangan web interaktif, dan manajemen multimedia korporat. Terbuka untuk peluang dan kolaborasi inovatif berikutnya.
+                    </p>
+                    <a href="mailto:ardiprnata@gmail.com" class="inline-flex items-center justify-center gap-2 px-6 py-3 w-max rounded-full bg-brand-accent hover:bg-blue-600 text-white text-sm font-semibold transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:-translate-y-1">
+                        <i class="fas fa-paper-plane"></i> Mari Berdiskusi
+                    </a>
+                </div>
+
+                <!-- Col 2: Kontak Langsung (Span 3) -->
+                <div class="lg:col-span-3">
+                    <h3 class="text-white font-bold mb-6 uppercase tracking-widest text-xs border-b border-white/10 pb-3 w-max">Kontak Langsung</h3>
+                    <div class="flex flex-col gap-4">
+                        <!-- Email -->
+                        <a href="mailto:ardiprnata@gmail.com" class="flex items-center gap-4 text-gray-400 hover:text-white transition group w-max">
+                            <div class="w-10 h-10 shrink-0 rounded-lg bg-slate-800/80 border border-white/5 flex items-center justify-center group-hover:bg-red-500/20 group-hover:border-red-500/50 group-hover:text-red-400 transition-all shadow-lg">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 font-semibold mb-0.5">Email</span>
+                                <span class="text-sm font-medium">ardiprnata@gmail.com</span>
+                            </div>
+                        </a>
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/6282267105833" target="_blank" class="flex items-center gap-4 text-gray-400 hover:text-white transition group w-max mt-2">
+                            <div class="w-10 h-10 shrink-0 rounded-lg bg-slate-800/80 border border-white/5 flex items-center justify-center group-hover:bg-green-500/20 group-hover:border-green-500/50 group-hover:text-green-400 transition-all shadow-lg">
+                                <i class="fab fa-whatsapp text-lg"></i>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 font-semibold mb-0.5">WhatsApp</span>
+                                <span class="text-sm font-medium">+62 822 6710 5833</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 3: Media Sosial (Span 4) -->
+                <div class="lg:col-span-4">
+                    <h3 class="text-white font-bold mb-6 uppercase tracking-widest text-xs border-b border-white/10 pb-3 w-max">Jejaring Sosial</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/dy-ardipranata/" target="_blank" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800/50 border border-white/5 hover:bg-blue-600/10 hover:border-blue-500/50 hover:-translate-y-1 transition-all group">
+                            <i class="fab fa-linkedin text-blue-500 text-xl group-hover:scale-110 transition"></i>
+                            <span class="text-sm text-gray-300 group-hover:text-white font-medium">LinkedIn</span>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/dy_ardipra/" target="_blank" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800/50 border border-white/5 hover:bg-pink-600/10 hover:border-pink-500/50 hover:-translate-y-1 transition-all group">
+                            <i class="fab fa-instagram text-pink-500 text-xl group-hover:scale-110 transition"></i>
+                            <span class="text-sm text-gray-300 group-hover:text-white font-medium">Instagram</span>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/ardipranatatst" target="_blank" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800/50 border border-white/5 hover:bg-blue-500/10 hover:border-blue-400/50 hover:-translate-y-1 transition-all group">
+                            <i class="fab fa-facebook text-blue-400 text-xl group-hover:scale-110 transition"></i>
+                            <span class="text-sm text-gray-300 group-hover:text-white font-medium">Facebook</span>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@nataaaats" target="_blank" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800/50 border border-white/5 hover:bg-white/10 hover:border-white/50 hover:-translate-y-1 transition-all group">
+                            <i class="fab fa-tiktok text-gray-100 text-xl group-hover:scale-110 transition"></i>
+                            <span class="text-sm text-gray-300 group-hover:text-white font-medium">TikTok</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright Line -->
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-xs text-center md:text-left leading-relaxed">
+                    &copy; 2026 Dwi Yanardi Pranata. All Rights Reserved. <br class="md:hidden"> Dirancang dan dikembangkan untuk Portofolio Profesional.
+                </p>
+                <div class="flex items-center gap-4">
+                    <span class="text-gray-600 text-xs flex items-center gap-1.5">
+                        Build with <i class="fas fa-heart text-red-500/70"></i> and Tailwind CSS
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-brand-accent text-4xl focus:outline-none">&times;</button>
+        <img id="lightbox-img" src="" alt="Zoomed view" class="max-w-[90vw] max-h-[80vh] object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300">
+        <div class="text-center mt-6 max-w-3xl px-4">
+            <h3 id="lightbox-title" class="text-2xl font-bold text-white mb-2"></h3>
+            <p id="lightbox-desc" class="text-gray-300"></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Scroll Reveal Animation Script
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+
+        // Lightbox Script
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+
+        function openLightbox(src, title, desc) {
+            lightboxImg.src = src;
+            lightboxTitle.innerText = title;
+            lightboxDesc.innerText = desc;
+            
+            lightbox.classList.remove('opacity-0', 'pointer-events-none');
+            lightbox.classList.add('opacity-100', 'pointer-events-auto');
+            
+            setTimeout(() => {
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 50);
+            
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+        }
+
+        function closeLightbox() {
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            
+            lightbox.classList.remove('opacity-100', 'pointer-events-auto');
+            lightbox.classList.add('opacity-0', 'pointer-events-none');
+            
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close lightbox on escape key or clicking outside
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") closeLightbox();
+        });
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+    </script>
+</body>
+</html>
